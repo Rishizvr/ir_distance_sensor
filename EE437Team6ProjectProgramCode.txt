@@ -9,6 +9,10 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import(FigureCanvasTkAgg, NavigationToolbar2Tk)
 
+# Future Implementations:
+# Allow for saving data as CSV
+# Add a separate GUI for file storage
+
 # Obtain sensor values, preprocess, and create formatted output to Shell
 # This step will run as a thread which terminates on GUI closing
 sensorValue = " "
@@ -109,26 +113,3 @@ root.geometry("380x280") # root.geometry("320x240")
 root.mainloop()
 
 sys.exit()
-
-
-
-
-#===============
-# Notes/Example Code:
-#
-# Use append function for graphing
-# matplotlib library
-# numpy library
-# sudo apt install python3-matplotlib
-# pip3 install numpy
-# sudo apt get install python-tk
-#
-# import tkinter
-# root = tkinter.Tk()
-#
-# myLabel1 = tk.Label(root, text="Hello World") # Add text
-# myLabel1.grid(row=0, column=0) # place myLabel in most convenient spot of root widget
-#
-# entry = Entry(root, width=50, borderwidth=5) # Add text box
-# entry.pack() # Place entry in most convenient spot of root widget
-# entry.get() # get text from the text box
