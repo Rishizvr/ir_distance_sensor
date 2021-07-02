@@ -9,6 +9,9 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import(FigureCanvasTkAgg, NavigationToolbar2Tk)
 
+# TODO:
+# Record data from terminal into GUI and create distance over time graph
+
 # Future Implementations:
 # Allow for saving data as CSV
 # Add a separate GUI to manipulate saved files
