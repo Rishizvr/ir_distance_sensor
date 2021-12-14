@@ -9,15 +9,6 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import(FigureCanvasTkAgg, NavigationToolbar2Tk)
 
-# TODO:
-# Record data from terminal into GUI and create distance over time graph
-
-# Future Implementations:
-# Allow for saving data as CSV
-# Add a separate GUI to manipulate saved files
-
-# Obtain sensor values, preprocess, and create formatted output to Shell
-# This step will run as a thread which terminates on GUI closing
 sensorValue = " "
 voltageValue = 0.0
 ser = serial.Serial('/dev/ttyACM0')
@@ -45,13 +36,8 @@ t1 = threading.Thread(target=sensing)
 t1.daemon = True
 t1.start()
 
-
-
-
-# Create root of GUI using Tk() from tkinter library
 root = tk.Tk()
 
-# Add push buttons START, STOP, RECORD
 userFrame = tk.LabelFrame(root, padx=0, pady=0)
 userFrame.pack()
 
@@ -71,12 +57,6 @@ stopButton.grid(row=0, column=1, padx=12)
 recordButton = tk.Button(userFrame, text="Record", width=7, height=2, bg="grey", command=recordClick)
 recordButton.grid(row=0, column=2, padx=12)
 
-
-
-
-# Add measurement options in cm, mm, and inch
-# distFrame is a LabelFrame containing measureOptions and distFrame2
-# distFrame2 is a LabelFrame containing distValue and distUnit
 distFrame = tk.LabelFrame(root, padx=20, pady=0)
 distFrame.pack()
 
@@ -94,10 +74,6 @@ distValue.grid(row=0, column=0)
 distUnit = tk.Label(distFrame2, width=3, textvariable=clicked, padx=10)
 distUnit.grid(row=0, column = 1)
 
-
-
-
-# Plot results in distance vs time, configure y axis with appropriate measurement
 graphFrame = tk.LabelFrame(root)
 graphFrame.pack(expand=True)
 
@@ -108,10 +84,6 @@ canvas = FigureCanvasTkAgg(fig, master=graphFrame)
 canvas.draw()
 canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
-
-
-
-# Run GUI and terminate daemon thread on exit
 root.geometry("380x280") # root.geometry("320x240")
 root.mainloop()
 
